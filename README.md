@@ -7,7 +7,7 @@ This code allows users to upload any image (png, jpeg, svg, gif) and the path co
 ### Important notes
 
 - The number of sample points can be increased in `main.js`.
-- This code makes use of a fork I made of the [imagetracerjs library](https://github.com/trozler/imagetracerjs).
+- This code makes use of a fork I made of the [imagetracerjs library](https://github.com/trozler/imagetracerjs). The API is used to convert an image to svg.
 
 ### How to run
 
