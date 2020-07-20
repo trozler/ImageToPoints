@@ -2,7 +2,7 @@
 
 ![](https://media.giphy.com/media/SXadTDcBz24BCIv8kh/giphy.gif)
 
-This code allows users to upload any image (png, jpeg, svg, gif) and the path corresponding to the svg equivilent of the image is printed to console.
+This code takes any image (png, jpeg, svg, gif) as input, it then traces the outline of the image (as if grayscale), and outputs the path of the image in terms of cartesian coordinates to console.
 
 ### Important notes
 
