@@ -11,4 +11,4 @@ This code takes any image (png, jpeg, svg, gif) as input, it then traces the out
 
 ### How to run
 
-- node.js: `npm install dropzone` and then of you go.
+- node.js: `npm install` and then of you go.
