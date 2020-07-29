@@ -1,7 +1,5 @@
 import { pathfinderImage, pathfinderSVG } from "./findPath.js";
 
-const n_points = 1280;
-
 //Dropzone config.
 Dropzone.options.myDropzone = {
   acceptedFiles: "image/jpeg,image/png,image/gif,image/svg+xml",
@@ -11,7 +9,7 @@ Dropzone.options.myDropzone = {
   init: function () {
     //When file has been added to dropzone create a new image. This image will be set to  the newly uploaded image.
     this.on("addedfile", function (file) {
-      const preview = document.getElementById("temp1");
+      const preview = new Image();
       const reader = new FileReader();
       reader.addEventListener(
         "load",
@@ -25,6 +23,7 @@ Dropzone.options.myDropzone = {
             mainPathFinder(preview, false);
           } else {
             var svgData = e.target.result;
+            svgData = svgData.slice(svgData.indexOf("<svg"));
             var parser = new DOMParser();
             var doc = parser.parseFromString(svgData, "image/svg+xml");
             var pathTags = doc.getElementsByTagName("path");
@@ -51,11 +50,14 @@ Dropzone.options.myDropzone = {
   },
 };
 
+//We only store evey 5 points. This can be increaed or decreased by users. Must always be a positive integer.
+const factor = 5;
+
 //Main flow begins.
 function mainPathFinder(image, svgBool) {
   if (svgBool) {
-    pathfinderSVG(image, true, n_points);
+    pathfinderSVG(image, true, factor);
   } else {
-    pathfinderImage(image.src, true, n_points);
+    pathfinderImage(image.src, true, factor);
   }
 }
