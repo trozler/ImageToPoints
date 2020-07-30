@@ -50,8 +50,8 @@ Dropzone.options.myDropzone = {
   },
 };
 
-//We only store evey 5 points. This can be increaed or decreased by users. Must always be a positive integer.
-const factor = 5;
+//We only store evey 3 points. This can be increaed or decreased by users. Must always be a positive integer.
+const factor = 3;
 
 //Main flow begins.
 function mainPathFinder(image, svgBool) {
