@@ -29,12 +29,11 @@ export function pathfinderImage(imageurl, draw, factor) {
         //Find points
         arr.push([]);
         let path = pathTags[j];
-        let n_points = Math.floor(path.getTotalLength() / factor);
+        let pathLength = path.getTotalLength();
+        let n_points = Math.floor(pathLength / factor);
 
         for (let i = 0; i < n_points; i++) {
-          let point = path.getPointAtLength(
-            (i / n_points) * path.getTotalLength()
-          );
+          let point = path.getPointAtLength((i / n_points) * pathLength);
           arr[j].push(point);
           if (draw) {
             ctx.fillRect(point.x, point.y, 2, 2);
@@ -67,10 +66,11 @@ export function pathfinderSVG(pathTags, draw, factor) {
     //Find points
     arr.push([]);
     let path = pathTags[j];
-    let n_points = Math.floor(path.getTotalLength() / factor);
+    let pathLength = path.getTotalLength();
+    let n_points = Math.floor(pathLength / factor);
 
     for (let i = 0; i < n_points; i++) {
-      let point = path.getPointAtLength((i / n_points) * path.getTotalLength());
+      let point = path.getPointAtLength((i / n_points) * pathLength);
       arr[j].push(point);
       if (draw) {
         ctx.fillRect(point.x, point.y, 2, 2);
